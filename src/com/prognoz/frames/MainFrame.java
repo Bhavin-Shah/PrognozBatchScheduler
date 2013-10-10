@@ -72,6 +72,7 @@ public class MainFrame extends javax.swing.JFrame {
             public void run() {
                 new MainFrame().setVisible(true);
                 System.out.println("Hi");
+                System.out.println("Hi");
             }
         });
 
