@@ -8,6 +8,7 @@ import com.prognoz.panels.BatchDetailsPanel;
 import com.prognoz.panels.BatchSchedulePanel;
 import com.prognoz.panels.BatchSchedulePanel1;
 import java.awt.Container;
+import java.awt.Toolkit;
 import javax.swing.JComponent;
 
 /**
@@ -21,11 +22,15 @@ public class MainFrame extends javax.swing.JFrame {
      */
     BatchDetailsPanel bdp = new BatchDetailsPanel();
     BatchSchedulePanel1 bsp = new BatchSchedulePanel1();
-    
+
     public MainFrame() {
-        
+
         initComponents();
         jButton3.setVisible(false);
+        Toolkit tool = Toolkit.getDefaultToolkit();
+        int x = (int) tool.getScreenSize().getWidth();
+        int y = (int) tool.getScreenSize().getHeight();
+        this.setSize(x, y);
     }
 
     public void resetFrame() {
@@ -100,7 +105,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        
+
 //        Container c = this.getContentPane();
 //        
 //        c.removeAll();
@@ -123,12 +128,15 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AbstractFrame af = new AbstractFrame();
-        
-        bsp.setBounds(0, 0, 1000, 1000);
+       
+
+        bsp.setBounds(100, 0, 683, 482);
         bsp.setVisible(true);
-        af.add(bsp);
-        af.setVisible(true);
+        this.add(bsp);
+        this.setVisible(true);
+        jButton1.setVisible(false);
+        jButton2.setVisible(false);
+        jButton3.setVisible(true);
 //        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -138,7 +146,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton1.setVisible(true);
         jButton2.setVisible(true);
         jButton3.setVisible(false);
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -172,7 +180,7 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainFrame().setVisible(true);
-                
+
             }
         });
     }
