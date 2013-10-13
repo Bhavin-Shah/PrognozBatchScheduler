@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  */
 public class Users {
 
-       public boolean validateUser(String userName, String password) {
+       static public boolean validateUser(String userName, String password) {
         try {
             Connection c = DatabaseConnection.getConnection();
             java.sql.PreparedStatement s = c.prepareStatement("select password from users where name = ?");
