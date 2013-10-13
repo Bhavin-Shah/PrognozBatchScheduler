@@ -38,8 +38,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField2" max="32767" attributes="0"/>
                           <Component id="jTextField1" pref="129" max="32767" attributes="0"/>
+                          <Component id="jPasswordField1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                   </Group>
@@ -61,8 +61,8 @@
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -85,12 +85,6 @@
         <Property name="text" type="java.lang.String" value="Login ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTextField2MouseClicked"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Password"/>
@@ -108,6 +102,11 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Invalid Login"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordField1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

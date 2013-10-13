@@ -6,6 +6,7 @@ package com.prognoz.panels;
 
 import com.prognoz.frames.MainFrame;
 import com.prognoz.models.BatchModel;
+import com.prognoz.models.Batches;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -20,7 +21,7 @@ public class BatchDetailsPanel extends javax.swing.JPanel {
      */
     public BatchDetailsPanel() {
         initComponents();
-
+        jLabel7.setVisible(false);
     }
 
     /**
@@ -46,6 +47,7 @@ public class BatchDetailsPanel extends javax.swing.JPanel {
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
         jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         jLabel1.setText("Batch Name");
 
@@ -81,6 +83,8 @@ public class BatchDetailsPanel extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Enter Batch Details");
 
+        jLabel7.setText("Batch Saved!");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,6 +118,10 @@ public class BatchDetailsPanel extends javax.swing.JPanel {
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(185, 185, 185))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(282, 282, 282)
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +154,9 @@ public class BatchDetailsPanel extends javax.swing.JPanel {
                     .addComponent(jLabel6))
                 .addGap(49, 49, 49)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -172,8 +182,8 @@ public class BatchDetailsPanel extends javax.swing.JPanel {
         String endDate = df2.format(d2);
 
         BatchModel bm = new BatchModel(batchName, trainerName, batchSize, technology, startDate, endDate);
-        
-
+        Batches.saveBatches(bm);
+        jLabel7.setVisible(true);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -188,6 +198,7 @@ public class BatchDetailsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

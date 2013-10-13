@@ -15,25 +15,27 @@ import java.util.logging.Logger;
  */
 public class Test {
 
-    public java.util.List getBatches() {
-        java.util.List<String> batchesName = new ArrayList<String>();
+    public static void saveBatches(BatchModel bm) {
         try {
             Connection c = DatabaseConnection.getConnection();
-            Statement s = c.createStatement();
-            ResultSet rs = s.executeQuery("select batch_name from batches");
-            while (rs.next()) {
-                batchesName.add(rs.getString(1));
+            java.sql.PreparedStatement s = c.prepareStatement("INSERT INTO `prognozdatabase`.`batches` (`batch_name`, `trainer_name`, `batch_size`, `technology`, `start_date`, `end_date`) VALUES (?, ?, ?, ?, ?, ?);");
+            s.setString(1, bm.getBatchName());
+            s.setString(2, bm.getTrainerName());
+            s.setString(3, bm.getBatchSize());
+            s.setString(4, bm.getTechnology());
+            s.setString(5, bm.getStartDate());
+            s.setString(6, bm.getEndDate());
+            int a = s.executeUpdate();
 
-            }
-            return batchesName;
+
         } catch (SQLException ex) {
-            Logger.getLogger(Batches.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return batchesName;
     }
 
     public static void main(String[] args) {
         Test t = new Test();
-        System.out.println(t.getBatches());
+        BatchModel bm = new BatchModel("dsad", "dsad", "dsd", "dsds", "dsd", "sdsd");
+        Test.saveBatches(bm);
     }
 }

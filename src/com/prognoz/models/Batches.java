@@ -34,15 +34,15 @@ public class Batches {
     public static void saveBatches(BatchModel bm) {
         try {
             Connection c = DatabaseConnection.getConnection();
-            java.sql.PreparedStatement s = c.prepareStatement("INSERT INTO `prognozdatabase`.`batches` (`batch_name`, `trainer_name`, `batch_size`, `technology`, `start_date`, `end_date`) VALUES ('?', '?', '?', '?', '?', '?');");
+            java.sql.PreparedStatement s = c.prepareStatement("INSERT INTO `prognozdatabase`.`batches` (`batch_name`, `trainer_name`, `batch_size`, `technology`, `start_date`, `end_date`) VALUES (?, ?, ?, ?, ?, ?);");
             s.setString(1, bm.getBatchName());
             s.setString(2, bm.getTrainerName());
             s.setString(3, bm.getBatchSize());
             s.setString(4, bm.getTechnology());
             s.setString(5, bm.getStartDate());
             s.setString(6, bm.getEndDate());
-            ResultSet rs = s.executeQuery();
-            
+            int a = s.executeUpdate();
+
 
         } catch (SQLException ex) {
             Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
