@@ -13,17 +13,18 @@ import java.util.logging.Logger;
  */
 public class Users {
 
-    public boolean validateUser(String userName, String password) {
+       public boolean validateUser(String userName, String password) {
         try {
             Connection c = DatabaseConnection.getConnection();
-            Statement s = c.createStatement();
-            ResultSet rs = s.executeQuery("select name, password from users");
+            java.sql.PreparedStatement s = c.prepareStatement("select password from users where name = ?");
+            s.setString(1, userName);
+            ResultSet rs = s.executeQuery();
             while (rs.next()) {
-                System.out.println(rs.getInt(1));
-                System.out.println(rs.getString(2));
-            }
-            if (rs.getString(1).equals(userName) && rs.getString(2).equals(password)) {
-                return true;
+//            System.out.println(rs.getString(1));
+//            System.out.println(rs.getString(2));
+                if (rs.getString(1).equals(password)) {
+                    return true;
+                }
             }
 
         } catch (SQLException ex) {

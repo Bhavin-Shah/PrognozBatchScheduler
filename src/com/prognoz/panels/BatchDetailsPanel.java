@@ -159,7 +159,7 @@ public class BatchDetailsPanel extends javax.swing.JPanel {
         Date d = jXDatePicker1.getDate();
         DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
         String date = df.format(d);
-        jLabel7.setText(date);
+        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
