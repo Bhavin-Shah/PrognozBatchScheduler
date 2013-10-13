@@ -130,7 +130,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        
 
-        bsp.setBounds(100, 0, 683, 482);
+        bsp.setBounds(100, 0, 750, 482);
         bsp.setVisible(true);
         this.add(bsp);
         this.setVisible(true);
