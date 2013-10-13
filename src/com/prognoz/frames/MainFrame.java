@@ -19,8 +19,13 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainFrame
      */
+    BatchDetailsPanel bdp = new BatchDetailsPanel();
+    BatchSchedulePanel1 bsp = new BatchSchedulePanel1();
+    
     public MainFrame() {
+        
         initComponents();
+        jButton3.setVisible(false);
     }
 
     public void resetFrame() {
@@ -37,6 +42,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,21 +60,35 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Home");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(140, 140, 140)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton3)))
                 .addContainerGap(155, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
+                .addContainerGap()
+                .addComponent(jButton3)
+                .addGap(67, 67, 67)
                 .addComponent(jButton1)
                 .addGap(39, 39, 39)
                 .addComponent(jButton2)
@@ -80,7 +100,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        BatchDetailsPanel bdp = new BatchDetailsPanel();
+        
 //        Container c = this.getContentPane();
 //        
 //        c.removeAll();
@@ -94,6 +114,7 @@ public class MainFrame extends javax.swing.JFrame {
         this.setVisible(true);
         jButton1.setVisible(false);
         jButton2.setVisible(false);
+        jButton3.setVisible(true);
 
 //        this.dispose();
 
@@ -103,13 +124,22 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         AbstractFrame af = new AbstractFrame();
-        BatchSchedulePanel1 bsp = new BatchSchedulePanel1();
+        
         bsp.setBounds(0, 0, 1000, 1000);
         bsp.setVisible(true);
         af.add(bsp);
         af.setVisible(true);
 //        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        bsp.setVisible(false);
+        bdp.setVisible(false);
+        jButton1.setVisible(true);
+        jButton2.setVisible(true);
+        jButton3.setVisible(false);
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,11 +172,13 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainFrame().setVisible(true);
+                
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }
