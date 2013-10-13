@@ -23,6 +23,9 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void resetFrame() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,20 +59,20 @@ public class MainFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addGap(140, 140, 140)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
+                .addGap(101, 101, 101)
                 .addComponent(jButton1)
-                .addGap(36, 36, 36)
+                .addGap(39, 39, 39)
                 .addComponent(jButton2)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         pack();
@@ -81,15 +84,19 @@ public class MainFrame extends javax.swing.JFrame {
 //        Container c = this.getContentPane();
 //        
 //        c.removeAll();
-        AbstractFrame af = new AbstractFrame();
+//        AbstractFrame af = new AbstractFrame();
 
 //        this.remove(1);
 //        this.remove(2);
         bdp.setBounds(0, 0, 1000, 1000);
         bdp.setVisible(true);
-        af.add(bdp);
-        af.setVisible(true);
-        this.dispose();
+        this.add(bdp);
+        this.setVisible(true);
+        jButton1.setVisible(false);
+        jButton2.setVisible(false);
+
+//        this.dispose();
+
 //        this.add(bdp);
 //        this.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -101,7 +108,7 @@ public class MainFrame extends javax.swing.JFrame {
         bsp.setVisible(true);
         af.add(bsp);
         af.setVisible(true);
-        this.dispose();
+//        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -139,7 +146,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }
