@@ -5,6 +5,7 @@
 package com.prognoz.panels;
 
 import com.prognoz.frames.MainFrame;
+import com.prognoz.models.BatchModel;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -156,17 +157,29 @@ public class BatchDetailsPanel extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
 //        jLabel7.setText(dateChooserCombo1.getText());
-        Date d = jXDatePicker1.getDate();
-        DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
-        String date = df.format(d);
+
+
+        String batchName = jTextField1.getText();
+        String trainerName = jTextField2.getText();
+        String batchSize = jTextField3.getText();
+        String technology = jTextField4.getText();
+        Date d1 = jXDatePicker1.getDate();
+        DateFormat df1 = DateFormat.getDateInstance(DateFormat.SHORT);
+        String startDate = df1.format(d1);
+
+        Date d2 = jXDatePicker2.getDate();
+        DateFormat df2 = DateFormat.getDateInstance(DateFormat.SHORT);
+        String endDate = df2.format(d2);
+
+        BatchModel bm = new BatchModel(batchName, trainerName, batchSize, technology, startDate, endDate);
         
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

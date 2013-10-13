@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,28 +15,25 @@ import java.util.logging.Logger;
  */
 public class Test {
 
-    public boolean validateUser(String userName, String password) {
+    public java.util.List getBatches() {
+        java.util.List<String> batchesName = new ArrayList<String>();
         try {
             Connection c = DatabaseConnection.getConnection();
-            java.sql.PreparedStatement s = c.prepareStatement("select password from users where name = ?");
-            s.setString(1, userName);
-            ResultSet rs = s.executeQuery();
+            Statement s = c.createStatement();
+            ResultSet rs = s.executeQuery("select batch_name from batches");
             while (rs.next()) {
-//            System.out.println(rs.getString(1));
-//            System.out.println(rs.getString(2));
-                if (rs.getString(1).equals(password)) {
-                    return true;
-                }
-            }
+                batchesName.add(rs.getString(1));
 
+            }
+            return batchesName;
         } catch (SQLException ex) {
-            Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Batches.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;
+        return batchesName;
     }
 
     public static void main(String[] args) {
         Test t = new Test();
-        System.out.println(t.validateUser("Bhavin", "Bhavin"));
+        System.out.println(t.getBatches());
     }
 }
