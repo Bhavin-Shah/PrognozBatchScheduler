@@ -5,7 +5,7 @@
 package com.prognoz.frames;
 
 import com.prognoz.panels.BatchDetailsPanel;
-import com.prognoz.panels.BatchSchedulePanel;
+
 import com.prognoz.panels.BatchSchedulePanel1;
 import java.awt.Container;
 import java.awt.Toolkit;
@@ -13,7 +13,7 @@ import javax.swing.JComponent;
 
 /**
  *
- * @author Kavita
+ * @author Bhavin
  */
 public class MainFrame extends javax.swing.JFrame {
 

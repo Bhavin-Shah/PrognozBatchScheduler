@@ -4,6 +4,11 @@
  */
 package com.prognoz.panels;
 
+import com.prognoz.models.Batches;
+import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+
 /**
  *
  * @author Kavita
@@ -15,6 +20,14 @@ public class BatchNamesPanel extends javax.swing.JPanel {
      */
     public BatchNamesPanel() {
         initComponents();
+        List<String> batchesName = Batches.getBatches();
+        for (String object : batchesName) {
+            JComponent component = new JButton(object);
+            this.add(component);
+        }
+    } 
+    public static void main(String[] args) {
+        new BatchNamesPanel();
     }
 
     /**
