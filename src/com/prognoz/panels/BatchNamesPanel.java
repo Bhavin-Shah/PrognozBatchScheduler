@@ -4,6 +4,7 @@
  */
 package com.prognoz.panels;
 
+import com.prognoz.frames.MainFrame;
 import com.prognoz.models.Batches;
 import java.util.List;
 import javax.swing.JButton;
@@ -18,12 +19,14 @@ public class BatchNamesPanel extends javax.swing.JPanel {
     /**
      * Creates new form BatchNamesPanel
      */
+    public static BatchSchedulePanel1 bsp = new BatchSchedulePanel1();
+
     public BatchNamesPanel() {
         initComponents();
         List<String> batchesName = Batches.getBatches();
         for (String object : batchesName) {
-            JComponent component = new JButton(object);
-            this.add(component);
+
+            jComboBox1.addItem(object);
         }
     }
 
@@ -40,17 +43,79 @@ public class BatchNamesPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Batch Name");
+
+        jButton1.setText("Select Batch");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(128, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(72, 72, 72)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(153, 153, 153))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(83, 83, 83))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        bsp.setBounds(0, 0, 1000, 1000);
+        bsp.setVisible(true);
+        MainFrame.getFrameReference().add(bsp);
+        MainFrame.getFrameReference().setVisible(true);
+        MainFrame.getFrameReference().jButton1.setVisible(false);
+        MainFrame.getFrameReference().jButton2.setVisible(false);
+        MainFrame.getFrameReference().jButton3.setVisible(true);
+        this.setVisible(false);
+        BatchSchedulePanel1.jLabel16.setText((String) jComboBox1.getSelectedItem());
+//        this.add(bsp);
+//        this.setVisible(true);
+//        jButton1.setVisible(false);
+//        jButton2.setVisible(false);
+//        jButton3.setVisible(true);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

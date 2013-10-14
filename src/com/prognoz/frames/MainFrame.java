@@ -5,6 +5,7 @@
 package com.prognoz.frames;
 
 import com.prognoz.panels.BatchDetailsPanel;
+import com.prognoz.panels.BatchNamesPanel;
 
 import com.prognoz.panels.BatchSchedulePanel1;
 import java.awt.Container;
@@ -22,6 +23,8 @@ public class MainFrame extends javax.swing.JFrame {
      */
     BatchDetailsPanel bdp = new BatchDetailsPanel();
     BatchSchedulePanel1 bsp = new BatchSchedulePanel1();
+    BatchNamesPanel bnp = new BatchNamesPanel();
+    static MainFrame mf;
 
     public MainFrame() {
 
@@ -31,9 +34,11 @@ public class MainFrame extends javax.swing.JFrame {
         int x = (int) tool.getScreenSize().getWidth();
         int y = (int) tool.getScreenSize().getHeight();
         this.setSize(x, y);
+        mf = this;
     }
 
-    public void resetFrame() {
+    public static MainFrame getFrameReference() {
+        return mf;
     }
 
     /**
@@ -128,24 +133,32 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-
-        bsp.setBounds(100, 0, 750, 482);
-        bsp.setVisible(true);
-        this.add(bsp);
+        bnp.setBounds(0, 0, 400, 300);
+        bnp.setVisible(true);
+        this.add(bnp);
         this.setVisible(true);
         jButton1.setVisible(false);
         jButton2.setVisible(false);
         jButton3.setVisible(true);
+//
+//        bsp.setBounds(100, 0, 750, 482);
+//        bsp.setVisible(true);
+//        this.add(bsp);
+//        this.setVisible(true);
+//        jButton1.setVisible(false);
+//        jButton2.setVisible(false);
+//        jButton3.setVisible(true);
 //        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         bsp.setVisible(false);
         bdp.setVisible(false);
+        bnp.setVisible(false);
         jButton1.setVisible(true);
         jButton2.setVisible(true);
         jButton3.setVisible(false);
+        BatchNamesPanel.bsp.setVisible(false);
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -187,6 +200,6 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }
