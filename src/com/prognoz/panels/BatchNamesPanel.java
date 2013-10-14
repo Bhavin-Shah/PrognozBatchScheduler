@@ -25,7 +25,8 @@ public class BatchNamesPanel extends javax.swing.JPanel {
             JComponent component = new JButton(object);
             this.add(component);
         }
-    } 
+    }
+
     public static void main(String[] args) {
         new BatchNamesPanel();
     }
