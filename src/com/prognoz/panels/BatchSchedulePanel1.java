@@ -4,6 +4,8 @@
  */
 package com.prognoz.panels;
 
+import java.awt.Component;
+
 /**
  *
  * @author Kavita
@@ -15,6 +17,7 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
      */
     public BatchSchedulePanel1() {
         initComponents();
+
     }
 
     /**
@@ -427,9 +430,63 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
     }//GEN-LAST:event_myTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+      myTextField10;
+     myTextField11;
+     myTextField12;
+     myTextField13;
+     myTextField14;
+     myTextField15;
+     myTextField16;
+     myTextField17;
+     myTextField18;
+     myTextField19;
+     myTextField2;
+     myTextField20;
+     myTextField21;
+     myTextField22;
+     myTextField23;
+     myTextField24;
+     myTextField25;
+     myTextField26;
+     myTextField27;
+     myTextField28;
+     myTextField29;
+     myTextField3;
+     myTextField30;
+     myTextField31;
+     myTextField32;
+     myTextField33;
+     myTextField34;
+     myTextField35;
+     myTextField36;
+     myTextField37;
+     myTextField38;
+     myTextField39;
+     myTextField4;
+     myTextField40;
+     myTextField41;
+     myTextField42;
+     myTextField43;
+     myTextField44;
+     myTextField45;
+     myTextField46;
+     myTextField47;
+     myTextField48;
+     myTextField49;
+     myTextField5;
+     myTextField50;
+     myTextField51;
+     myTextField52;
+     myTextField53;
+     myTextField54;
+     myTextField55;
+     myTextField56;
+     myTextField6;
+     myTextField7;
+     myTextField8;
+     myTextField9
+    
     }//GEN-LAST:event_jButton1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
