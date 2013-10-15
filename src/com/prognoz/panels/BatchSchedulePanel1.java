@@ -10,11 +10,17 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -117,6 +123,15 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        jButton2 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
 
         jLabel1.setText("10:00 - 11:00");
 
@@ -172,6 +187,40 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel17.setText("Batch Name:");
 
+        jXDatePicker1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jXDatePicker1FocusGained(evt);
+            }
+        });
+        jXDatePicker1.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                jXDatePicker1InputMethodTextChanged(evt);
+            }
+        });
+
+        jButton2.setText("GO!");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("              ");
+
+        jLabel19.setText("              ");
+
+        jLabel20.setText("             ");
+
+        jLabel21.setText("             ");
+
+        jLabel22.setText("             ");
+
+        jLabel23.setText("             ");
+
+        jLabel24.setText("          ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -203,8 +252,10 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
                             .addComponent(myTextField50, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                             .addComponent(myTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(jLabel9)))
+                                .addGap(2, 2, 2)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel9))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -226,16 +277,26 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(myTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel11)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel11))
                                 .addGap(57, 57, 57)
-                                .addComponent(jLabel12)
-                                .addGap(62, 62, 62)
-                                .addComponent(jLabel13)
-                                .addGap(69, 69, 69)
-                                .addComponent(jLabel14)
-                                .addGap(58, 58, 58)
-                                .addComponent(jLabel15)
-                                .addGap(35, 35, 35))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel21))
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel22))
+                                .addGap(46, 46, 46)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel23))
+                                .addGap(37, 37, 37)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel24))
+                                .addGap(15, 15, 15))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(myTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -330,7 +391,14 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
                         .addGap(257, 257, 257)
                         .addComponent(jLabel17)
                         .addGap(47, 47, 47)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(137, 137, 137)
+                        .addComponent(jLabel19)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -345,7 +413,23 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
                     .addComponent(jLabel13)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15))
-                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel24))))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(myTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -605,8 +689,8 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
         Map<String, Object[]> data = new LinkedHashMap<String, Object[]>();
         data.put("1", new Object[]{"", "MON", "TUE", "WED", "THUR", "FRI", "SAT", "SUN"});
         data.put("2", new Object[]{"10:00 - 11:00", myTextField1.getText(), myTextField2.getText(), myTextField3.getText(), myTextField4.getText(), myTextField5.getText(), myTextField6.getText(), myTextField7.getText()});
-        data.put("3", new Object[]{"11:00 - 12:00",  myTextField8.getText(), myTextField9.getText(), myTextField10.getText(), myTextField11.getText(), myTextField12.getText(), myTextField13.getText(), myTextField14.getText()});
-        data.put("4", new Object[]{"12:00 - 13:00" , myTextField15.getText(), myTextField16.getText(), myTextField17.getText(), myTextField18.getText(), myTextField19.getText(), myTextField20.getText(), myTextField21.getText()});
+        data.put("3", new Object[]{"11:00 - 12:00", myTextField8.getText(), myTextField9.getText(), myTextField10.getText(), myTextField11.getText(), myTextField12.getText(), myTextField13.getText(), myTextField14.getText()});
+        data.put("4", new Object[]{"12:00 - 13:00", myTextField15.getText(), myTextField16.getText(), myTextField17.getText(), myTextField18.getText(), myTextField19.getText(), myTextField20.getText(), myTextField21.getText()});
         data.put("5", new Object[]{"13:00 - 14:00 ", myTextField22.getText(), myTextField23.getText(), myTextField24.getText(), myTextField25.getText(), myTextField26.getText(), myTextField27.getText(), myTextField28.getText()});
         data.put("6", new Object[]{"14:00 - 15:00", myTextField29.getText(), myTextField30.getText(), myTextField31.getText(), myTextField32.getText(), myTextField33.getText(), myTextField34.getText(), myTextField35.getText()});
         data.put("7", new Object[]{"15:00 - 16:00", myTextField36.getText(), myTextField37.getText(), myTextField38.getText(), myTextField39.getText(), myTextField40.getText(), myTextField41.getText(), myTextField42.getText()});
@@ -653,8 +737,53 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
             e.printStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jXDatePicker1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jXDatePicker1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jXDatePicker1FocusGained
+
+    private void jXDatePicker1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jXDatePicker1InputMethodTextChanged
+    }//GEN-LAST:event_jXDatePicker1InputMethodTextChanged
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Date d1 = jXDatePicker1.getDate();
+        DateFormat df1 = DateFormat.getDateInstance(DateFormat.SHORT);
+        String startDate = df1.format(d1);
+
+        String dt = startDate;  // Start date
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+        Calendar c = Calendar.getInstance();
+        try {
+            c.setTime(sdf.parse(dt));
+        } catch (ParseException ex) {
+            Logger.getLogger(BatchSchedulePanel1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jLabel18.setText(startDate);
+        c.add(Calendar.DATE, 1);
+        dt = sdf.format(c.getTime());
+        jLabel19.setText(dt);
+        c.add(Calendar.DATE, 1);
+        dt = sdf.format(c.getTime());
+        jLabel20.setText(dt);
+        c.add(Calendar.DATE, 1);
+        dt = sdf.format(c.getTime());
+        jLabel21.setText(dt);
+        c.add(Calendar.DATE, 1);
+        dt = sdf.format(c.getTime());
+        jLabel22.setText(dt);
+        c.add(Calendar.DATE, 1);
+        dt = sdf.format(c.getTime());
+        jLabel23.setText(dt);
+        c.add(Calendar.DATE, 1);
+        dt = sdf.format(c.getTime());
+        jLabel24.setText(dt);
+
+        // TODO add your handling code here:// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -664,7 +793,14 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel15;
     public static javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -672,6 +808,7 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private javax.swing.JTextField myTextField1;
     private javax.swing.JTextField myTextField10;
     private javax.swing.JTextField myTextField11;
