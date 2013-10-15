@@ -5,6 +5,20 @@
 package com.prognoz.panels;
 
 import java.awt.Component;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 
 /**
  *
@@ -430,66 +444,214 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
     }//GEN-LAST:event_myTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String one = myTextField1.getText();
-        String two = myTextField2.getText();
-        String three = myTextField3.getText();
-        String four = myTextField4.getText();
-        String five = myTextField5.getText();
-        String six = myTextField6.getText();
-        String seven = myTextField7.getText();
-        String eight = myTextField8.getText();
-        String nine = myTextField9.getText();
-        String ten = myTextField10.getText();
-        String eleven = myTextField11.getText();
-        String twelve = myTextField12.getText();
-        String thirteen = myTextField13.getText();
-        String fourteen = myTextField14.getText();
-        String fifteen = myTextField15.getText();
-        String sixteen = myTextField16.getText();
-        String seventeen = myTextField17.getText();
-        String eighteen = myTextField18.getText();
-        String ninteen = myTextField19.getText();
-        String twenty = myTextField20.getText();
-        String twentyone = myTextField21.getText();
-        String twentytwo = myTextField22.getText();
-        String twentythree = myTextField23.getText();
-        String twentyfour = myTextField24.getText();
-        String twentyfive = myTextField25.getText();
-        String twentysix = myTextField26.getText();
-        String twentyseven = myTextField27.getText();
-        String twentyeight = myTextField28.getText();
-        String twentynine = myTextField29.getText();
-        String thirty = myTextField30.getText();
-        String thirtyone = myTextField31.getText();
-        String thirtytwo = myTextField32.getText();
-        String thirtythree = myTextField33.getText();
-        String thirtyfour = myTextField34.getText();
-        String thirtyfive = myTextField35.getText();
-        String thirtysix = myTextField36.getText();
-        String thirtyseven = myTextField37.getText();
-        String thirtyeight = myTextField38.getText();
-        String thirtynine = myTextField39.getText();
-        String fourty = myTextField40.getText();
-        String fourtyone = myTextField41.getText();
-        String fourtytwo = myTextField42.getText();
-        String fourtythree = myTextField43.getText();
-        String fourtyfour = myTextField44.getText();
-        String fourtyfive = myTextField45.getText();
-        String fourtysix = myTextField46.getText();
-        String fourtyseven = myTextField47.getText();
-        String fourtyeight = myTextField48.getText();
-        String fourtynine = myTextField49.getText();
-        String fifty = myTextField50.getText();
-        String fiftyone = myTextField51.getText();
-        String fiftytwo = myTextField52.getText();
-        String fiftythree = myTextField53.getText();
-        String fiftyfour = myTextField54.getText();
-        String fiftyfive = myTextField55.getText();
-        String fiftysix = myTextField56.getText();
+//        ArrayList data = new ArrayList();
+//        data.add(myTextField1.getText());
+//        data.add(myTextField2.getText());
+//        data.add(myTextField3.getText());
+//        data.add(myTextField4.getText());
+//        data.add(myTextField5.getText());
+//        data.add(myTextField6.getText());
+//        data.add(myTextField7.getText());
+//        data.add(myTextField8.getText());
+//        data.add(myTextField9.getText());
+//        data.add(myTextField10.getText());
+//        data.add(myTextField11.getText());
+//        data.add(myTextField12.getText());
+//        data.add(myTextField13.getText());
+//        data.add(myTextField14.getText());
+//        data.add(myTextField15.getText());
+//        data.add(myTextField16.getText());
+//        data.add(myTextField17.getText());
+//        data.add(myTextField18.getText());
+//        data.add(myTextField19.getText());
+//        data.add(myTextField20.getText());
+//        data.add(myTextField21.getText());
+//        data.add(myTextField22.getText());
+//        data.add(myTextField23.getText());
+//        data.add(myTextField24.getText());
+//        data.add(myTextField25.getText());
+//        data.add(myTextField26.getText());
+//        data.add(myTextField27.getText());
+//        data.add(myTextField28.getText());
+//        data.add(myTextField29.getText());
+//        data.add(myTextField30.getText());
+//        data.add(myTextField31.getText());
+//        data.add(myTextField32.getText());
+//        data.add(myTextField33.getText());
+//        data.add(myTextField34.getText());
+//        data.add(myTextField35.getText());
+//        data.add(myTextField36.getText());
+//        data.add(myTextField37.getText());
+//        data.add(myTextField38.getText());
+//        data.add(myTextField39.getText());
+//        data.add(myTextField40.getText());
+//        data.add(myTextField41.getText());
+//        data.add(myTextField42.getText());
+//        data.add(myTextField43.getText());
+//        data.add(myTextField44.getText());
+//        data.add(myTextField45.getText());
+//        data.add(myTextField46.getText());
+//        data.add(myTextField47.getText());
+//        data.add(myTextField48.getText());
+//        data.add(myTextField49.getText());
+//        data.add(myTextField50.getText());
+//        data.add(myTextField51.getText());
+//        data.add(myTextField52.getText());
+//        data.add(myTextField53.getText());
+//        data.add(myTextField54.getText());
+//        data.add(myTextField55.getText());
+//        data.add(myTextField56.getText());
+//        System.out.println(data);
+//        try {
+//            FileInputStream file = new FileInputStream(new File("D:\\test.xls"));
+//
+//            HSSFWorkbook workbook = new HSSFWorkbook(file);
+//            HSSFSheet sheet = workbook.getSheetAt(0);
+//            Cell cell = null;
+//
+//            //Update the value of cell
+////            cell = sheet.createRow(12).createCell(5);
+////            cell.setCellValue("Bhavin");
+////            cell = sheet.createRow(2).createCell(2);
+////            cell.setCellValue("Bhavin");
+//
+//            int counter = 1;
+//            for (int i = 1; i <= 8; i++) {
+//                for (int j = 1; j <= 7; j++) {
+//                    System.out.println(data.get(counter - 1));
+//                    cell = sheet.createRow(i).createCell(j);
+//                    cell.setCellValue((String) data.get(counter - 1));
+//                    counter++;
+//                }
+//            }
+//            cell = sheet.getRow(2).getCell(2);
+//            cell.setCellValue(cell.getNumericCellValue() * 2);
+//            cell = sheet.getRow(3).getCell(2);
+//            cell.setCellValue(cell.getNumericCellValue() * 2);
+
+//            file.close();
+//
+//            FileOutputStream outFile = new FileOutputStream(new File("D:\\update.xls"));
+//            workbook.write(outFile);
+//            outFile.close();
+//
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
 
+//        String two = myTextField2.getText();
+//        String three = myTextField3.getText();
+//        String four = myTextField4.getText();
+//        String five = myTextField5.getText();
+//        String six = myTextField6.getText();
+//        String seven = myTextField7.getText();
+//        String eight = myTextField8.getText();
+//        String nine = myTextField9.getText();
+//        String ten = myTextField10.getText();
+//        String eleven = myTextField11.getText();
+//        String twelve = myTextField12.getText();
+//        String thirteen = myTextField13.getText();
+//        String fourteen = myTextField14.getText();
+//        String fifteen = myTextField15.getText();
+//        String sixteen = myTextField16.getText();
+//        String seventeen = myTextField17.getText();
+//        String eighteen = myTextField18.getText();
+//        String ninteen = myTextField19.getText();
+//        String twenty = myTextField20.getText();
+//        String twentyone = myTextField21.getText();
+//        String twentytwo = myTextField22.getText();
+//        String twentythree = myTextField23.getText();
+//        String twentyfour = myTextField24.getText();
+//        String twentyfive = myTextField25.getText();
+//        String twentysix = myTextField26.getText();
+//        String twentyseven = myTextField27.getText();
+//        String twentyeight = myTextField28.getText();
+//        String twentynine = myTextField29.getText();
+//        String thirty = myTextField30.getText();
+//        String thirtyone = myTextField31.getText();
+//        String thirtytwo = myTextField32.getText();
+//        String thirtythree = myTextField33.getText();
+//        String thirtyfour = myTextField34.getText();
+//        String thirtyfive = myTextField35.getText();
+//        String thirtysix = myTextField36.getText();
+//        String thirtyseven = myTextField37.getText();
+//        String thirtyeight = myTextField38.getText();
+//        String thirtynine = myTextField39.getText();
+//        String fourty = myTextField40.getText();
+//        String fourtyone = myTextField41.getText();
+//        String fourtytwo = myTextField42.getText();
+//        String fourtythree = myTextField43.getText();
+//        String fourtyfour = myTextField44.getText();
+//        String fourtyfive = myTextField45.getText();
+//        String fourtysix = myTextField46.getText();
+//        String fourtyseven = myTextField47.getText();
+//        String fourtyeight = myTextField48.getText();
+//        String fourtynine = myTextField49.getText();
+//        String fifty = myTextField50.getText();
+//        String fiftyone = myTextField51.getText();
+//        String fiftytwo = myTextField52.getText();
+//        String fiftythree = myTextField53.getText();
+//        String fiftyfour = myTextField54.getText();
+//        String fiftyfive = myTextField55.getText();
+//        String fiftysix = myTextField56.getText();
 
 
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("Sample sheet");
+
+        Map<String, Object[]> data = new LinkedHashMap<String, Object[]>();
+        data.put("1", new Object[]{"", "MON", "TUE", "WED", "THUR", "FRI", "SAT", "SUN"});
+        data.put("2", new Object[]{"10:00 - 11:00", myTextField1.getText(), myTextField2.getText(), myTextField3.getText(), myTextField4.getText(), myTextField5.getText(), myTextField6.getText(), myTextField7.getText()});
+        data.put("3", new Object[]{"11:00 - 12:00",  myTextField8.getText(), myTextField9.getText(), myTextField10.getText(), myTextField11.getText(), myTextField12.getText(), myTextField13.getText(), myTextField14.getText()});
+        data.put("4", new Object[]{"12:00 - 13:00" , myTextField15.getText(), myTextField16.getText(), myTextField17.getText(), myTextField18.getText(), myTextField19.getText(), myTextField20.getText(), myTextField21.getText()});
+        data.put("5", new Object[]{"13:00 - 14:00 ", myTextField22.getText(), myTextField23.getText(), myTextField24.getText(), myTextField25.getText(), myTextField26.getText(), myTextField27.getText(), myTextField28.getText()});
+        data.put("6", new Object[]{"14:00 - 15:00", myTextField29.getText(), myTextField30.getText(), myTextField31.getText(), myTextField32.getText(), myTextField33.getText(), myTextField34.getText(), myTextField35.getText()});
+        data.put("7", new Object[]{"15:00 - 16:00", myTextField36.getText(), myTextField37.getText(), myTextField38.getText(), myTextField39.getText(), myTextField40.getText(), myTextField41.getText(), myTextField42.getText()});
+        data.put("8", new Object[]{"16:00 - 17:00", myTextField43.getText(), myTextField44.getText(), myTextField45.getText(), myTextField46.getText(), myTextField47.getText(), myTextField48.getText(), myTextField49.getText()});
+        data.put("9", new Object[]{"17:00 - 18:00", myTextField50.getText(), myTextField51.getText(), myTextField52.getText(), myTextField53.getText(), myTextField54.getText(), myTextField55.getText(), myTextField56.getText()});
+//        data.put("2", new Object[]{1d, "John", 1500000d});
+//        data.put("3", new Object[]{2d, "Sam", 800000d});
+//        data.put("4", new Object[]{3d, "Dean", 700000d});
+//        data.put("5", new Object[]{3d, "Dean", 700000d});
+//        data.put("6", new Object[]{3d, "Dean", 700000d});
+//        data.put("7", new Object[]{3d, "Dean", 700000d});
+//        data.put("8", new Object[]{3d, "Dean", 700000d});
+
+        Set<String> keyset = data.keySet();
+        int rownum = 0;
+        for (String key : keyset) {
+            Row row = sheet.createRow(rownum++);
+            Object[] objArr = data.get(key);
+            int cellnum = 0;
+            for (Object obj : objArr) {
+                Cell cell = row.createCell(cellnum++);
+                if (obj instanceof Date) {
+                    cell.setCellValue((Date) obj);
+                } else if (obj instanceof Boolean) {
+                    cell.setCellValue((Boolean) obj);
+                } else if (obj instanceof String) {
+                    cell.setCellValue((String) obj);
+                } else if (obj instanceof Double) {
+                    cell.setCellValue((Double) obj);
+                }
+            }
+        }
+
+        try {
+            FileOutputStream out =
+                    new FileOutputStream(new File("D:\\aaa.xls"));
+            workbook.write(out);
+            out.close();
+            System.out.println("Excel written successfully..");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
