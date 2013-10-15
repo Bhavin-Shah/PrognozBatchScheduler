@@ -687,15 +687,17 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
         HSSFSheet sheet = workbook.createSheet("Sample sheet");
 
         Map<String, Object[]> data = new LinkedHashMap<String, Object[]>();
+
         data.put("1", new Object[]{"", "MON", "TUE", "WED", "THUR", "FRI", "SAT", "SUN"});
-        data.put("2", new Object[]{"10:00 - 11:00", myTextField1.getText(), myTextField2.getText(), myTextField3.getText(), myTextField4.getText(), myTextField5.getText(), myTextField6.getText(), myTextField7.getText()});
-        data.put("3", new Object[]{"11:00 - 12:00", myTextField8.getText(), myTextField9.getText(), myTextField10.getText(), myTextField11.getText(), myTextField12.getText(), myTextField13.getText(), myTextField14.getText()});
-        data.put("4", new Object[]{"12:00 - 13:00", myTextField15.getText(), myTextField16.getText(), myTextField17.getText(), myTextField18.getText(), myTextField19.getText(), myTextField20.getText(), myTextField21.getText()});
-        data.put("5", new Object[]{"13:00 - 14:00 ", myTextField22.getText(), myTextField23.getText(), myTextField24.getText(), myTextField25.getText(), myTextField26.getText(), myTextField27.getText(), myTextField28.getText()});
-        data.put("6", new Object[]{"14:00 - 15:00", myTextField29.getText(), myTextField30.getText(), myTextField31.getText(), myTextField32.getText(), myTextField33.getText(), myTextField34.getText(), myTextField35.getText()});
-        data.put("7", new Object[]{"15:00 - 16:00", myTextField36.getText(), myTextField37.getText(), myTextField38.getText(), myTextField39.getText(), myTextField40.getText(), myTextField41.getText(), myTextField42.getText()});
-        data.put("8", new Object[]{"16:00 - 17:00", myTextField43.getText(), myTextField44.getText(), myTextField45.getText(), myTextField46.getText(), myTextField47.getText(), myTextField48.getText(), myTextField49.getText()});
-        data.put("9", new Object[]{"17:00 - 18:00", myTextField50.getText(), myTextField51.getText(), myTextField52.getText(), myTextField53.getText(), myTextField54.getText(), myTextField55.getText(), myTextField56.getText()});
+        data.put("2", new Object[]{jLabel18.getText(), jLabel19.getText(), jLabel20.getText(), jLabel21.getText(), jLabel22.getText(), jLabel23.getText(), jLabel24.getText(),});
+        data.put("3", new Object[]{"10:00 - 11:00", myTextField1.getText(), myTextField2.getText(), myTextField3.getText(), myTextField4.getText(), myTextField5.getText(), myTextField6.getText(), myTextField7.getText()});
+        data.put("4", new Object[]{"11:00 - 12:00", myTextField8.getText(), myTextField9.getText(), myTextField10.getText(), myTextField11.getText(), myTextField12.getText(), myTextField13.getText(), myTextField14.getText()});
+        data.put("5", new Object[]{"12:00 - 13:00", myTextField15.getText(), myTextField16.getText(), myTextField17.getText(), myTextField18.getText(), myTextField19.getText(), myTextField20.getText(), myTextField21.getText()});
+        data.put("6", new Object[]{"13:00 - 14:00 ", myTextField22.getText(), myTextField23.getText(), myTextField24.getText(), myTextField25.getText(), myTextField26.getText(), myTextField27.getText(), myTextField28.getText()});
+        data.put("7", new Object[]{"14:00 - 15:00", myTextField29.getText(), myTextField30.getText(), myTextField31.getText(), myTextField32.getText(), myTextField33.getText(), myTextField34.getText(), myTextField35.getText()});
+        data.put("8", new Object[]{"15:00 - 16:00", myTextField36.getText(), myTextField37.getText(), myTextField38.getText(), myTextField39.getText(), myTextField40.getText(), myTextField41.getText(), myTextField42.getText()});
+        data.put("9", new Object[]{"16:00 - 17:00", myTextField43.getText(), myTextField44.getText(), myTextField45.getText(), myTextField46.getText(), myTextField47.getText(), myTextField48.getText(), myTextField49.getText()});
+        data.put("10", new Object[]{"17:00 - 18:00", myTextField50.getText(), myTextField51.getText(), myTextField52.getText(), myTextField53.getText(), myTextField54.getText(), myTextField55.getText(), myTextField56.getText()});
 //        data.put("2", new Object[]{1d, "John", 1500000d});
 //        data.put("3", new Object[]{2d, "Sam", 800000d});
 //        data.put("4", new Object[]{3d, "Dean", 700000d});
