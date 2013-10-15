@@ -118,7 +118,7 @@ public class MainFrame extends javax.swing.JFrame {
 
 //        this.remove(1);
 //        this.remove(2);
-        bdp.setBounds(0, 0, 1000, 1000);
+        bdp.setBounds(0, 0, 607, 533);
         bdp.setVisible(true);
         this.add(bdp);
         this.setVisible(true);
@@ -133,6 +133,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        BatchNamesPanel.getNames();
         bnp.setBounds(0, 0, 400, 300);
         bnp.setVisible(true);
         this.add(bnp);

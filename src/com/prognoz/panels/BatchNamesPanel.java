@@ -23,6 +23,12 @@ public class BatchNamesPanel extends javax.swing.JPanel {
 
     public BatchNamesPanel() {
         initComponents();
+        getNames();
+
+    }
+
+    public static void getNames() {
+        jComboBox1.removeAllItems();
         List<String> batchesName = Batches.getBatches();
         for (String object : batchesName) {
 
@@ -112,10 +118,9 @@ public class BatchNamesPanel extends javax.swing.JPanel {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
+    public static javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
