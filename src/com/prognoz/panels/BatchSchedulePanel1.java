@@ -37,6 +37,7 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
      */
     public BatchSchedulePanel1() {
         initComponents();
+        jLabel25.setVisible(false);
 
     }
 
@@ -132,6 +133,7 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
 
         jLabel1.setText("10:00 - 11:00");
 
@@ -221,6 +223,8 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
 
         jLabel24.setText("          ");
 
+        jLabel25.setText("Batch Saved!");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -263,7 +267,9 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
                             .addComponent(myTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel10)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel10))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -370,11 +376,14 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(myTextField49, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(myTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(myTextField52, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(myTextField53, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel25)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(myTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(myTextField52, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(myTextField53, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(myTextField54, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -396,9 +405,7 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(137, 137, 137)
-                        .addComponent(jLabel19)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -510,7 +517,9 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
                     .addComponent(myTextField55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(myTextField56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel25))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -689,7 +698,7 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
         Map<String, Object[]> data = new LinkedHashMap<String, Object[]>();
 
         data.put("1", new Object[]{"", "MON", "TUE", "WED", "THUR", "FRI", "SAT", "SUN"});
-        data.put("2", new Object[]{jLabel18.getText(), jLabel19.getText(), jLabel20.getText(), jLabel21.getText(), jLabel22.getText(), jLabel23.getText(), jLabel24.getText(),});
+        data.put("2", new Object[]{"", jLabel18.getText(), jLabel19.getText(), jLabel20.getText(), jLabel21.getText(), jLabel22.getText(), jLabel23.getText(), jLabel24.getText(),});
         data.put("3", new Object[]{"10:00 - 11:00", myTextField1.getText(), myTextField2.getText(), myTextField3.getText(), myTextField4.getText(), myTextField5.getText(), myTextField6.getText(), myTextField7.getText()});
         data.put("4", new Object[]{"11:00 - 12:00", myTextField8.getText(), myTextField9.getText(), myTextField10.getText(), myTextField11.getText(), myTextField12.getText(), myTextField13.getText(), myTextField14.getText()});
         data.put("5", new Object[]{"12:00 - 13:00", myTextField15.getText(), myTextField16.getText(), myTextField17.getText(), myTextField18.getText(), myTextField19.getText(), myTextField20.getText(), myTextField21.getText()});
@@ -728,10 +737,11 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
 
         try {
             FileOutputStream out =
-                    new FileOutputStream(new File("D:\\aaa.xls"));
+                    new FileOutputStream(new File("D:\\PrognozSchedule.xls"));
             workbook.write(out);
             out.close();
             System.out.println("Excel written successfully..");
+            jLabel25.setVisible(true);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -803,6 +813,7 @@ public class BatchSchedulePanel1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
